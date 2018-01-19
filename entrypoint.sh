@@ -1,4 +1,5 @@
 #!/bin/ash
+# shellcheck shell=dash
 
 RESOLVER_IP=$(nslookup kube-dns | head -1 | awk '{print $2}')
 sed -i "s/\$RESOLVER_IP/${RESOLVER_IP}/g" /etc/nginx/conf.d/default.conf
